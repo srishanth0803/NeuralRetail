@@ -4,6 +4,8 @@ import pandas as pd
 
 
 data=pd.read_csv("data/bronze/online_retail_II_bronze.csv")
+data=data.dropna(subset=['Customer ID'])
+data=data.dropna(subset=['Description'])
 
 profile = ProfileReport(
     data,

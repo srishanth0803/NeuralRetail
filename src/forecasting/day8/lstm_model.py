@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+# pyrefly: ignore [missing-import]
 import pytorch_lightning as pl
 
 class LSTMForecast(pl.LightningModule):

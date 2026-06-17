@@ -1,5 +1,3 @@
-# src/forecasting/day8/lstm_dataset.py
-
 import pandas as pd
 import numpy as np
 

@@ -48,6 +48,16 @@ with mlflow.start_run():
     print("RMSE: ",rmse)
     print("MAPE: ",mape)
 
-    
+mlflow.set_experiment(
+    "Demand Forecast Comparison"
+)
+
+with mlflow.start_run(
+    run_name="Prophet"
+):
+    mlflow.log_metric(
+        "MAPE_Prophet",
+        mape
+    )
 
 

@@ -1,5 +1,7 @@
 import pandas as pd
+# pyrefly: ignore [missing-import]
 import mlflow
+# pyrefly: ignore [missing-import]
 import mlflow.xgboost
 
 from xgboost import XGBClassifier

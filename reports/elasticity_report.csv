@@ -1,0 +1,21 @@
+                       OLS Regression Results                       
+Dep. Variable:   ,log_demand      ,  R-squared:         ,   0.203   
+Model:           ,OLS             ,  Adj. R-squared:    ,   0.203   
+Method:          ,Least Squares   ,  F-statistic:       ,6.498e+04  
+Date:            ,Sun, 21 Jun 2026,  Prob (F-statistic):,  0.00     
+Time:            ,11:57:08        ,  Log-Likelihood:    ,-7.7377e+05
+No. Observations:,511566          ,  AIC:               ,1.548e+06  
+Df Residuals:    ,511563          ,  BIC:               ,1.548e+06  
+Df Model:        ,     2          ,                     ,           
+Covariance Type: ,nonrobust       ,                     ,           
+         ,   coef   , std err ,    t    ,P>|t| ,  [0.025 ,  0.975] 
+const    ,    1.8637,    0.002,  852.111, 0.000,    1.859,    1.868
+log_price,   -0.5950,    0.002, -360.513, 0.000,   -0.598,   -0.592
+promotion,   -0.0010,    0.004,   -0.267, 0.789,   -0.009,    0.006
+Omnibus:      ,18815.298,  Durbin-Watson:     ,   0.621 
+Prob(Omnibus):, 0.000   ,  Jarque-Bera (JB):  ,22521.890
+Skew:         , 0.435   ,  Prob(JB):          ,    0.00 
+Kurtosis:     , 3.546   ,  Cond. No.          ,    3.78 
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

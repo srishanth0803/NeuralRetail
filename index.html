@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuralRetail - AI Powered Retail Demand Forecasting & Customer Analytics</title>
+  <meta name="description" content="An end-to-end AI-powered Retail Analytics platform built using Machine Learning, Deep Learning, and MLOps by Gottam Srishanth.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- AOS (Animate on Scroll) CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background Mesh Glow -->
+  <div class="bg-glow-container"></div>
+
+  <!-- Sticky Glass Navbar -->
+  <nav class="navbar navbar-expand-xl sticky-top navbar-glass">
+    <div class="container-fluid px-lg-5">
+      <a class="navbar-brand" href="#home">
+        <div class="brand-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <span>Neural<span class="gradient-text">Retail</span></span>
+      </a>
+
+      <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <i class="fas fa-bars fs-4"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#techstack">Tech Stack</a></li>
+          <li class="nav-item"><a class="nav-link" href="#architecture">Architecture</a></li>
+          <li class="nav-item"><a class="nav-link" href="#eda">EDA</a></li>
+          <li class="nav-item"><a class="nav-link" href="#forecasting">Forecasting</a></li>
+          <li class="nav-item"><a class="nav-link" href="#churn">Churn</a></li>
+          <li class="nav-item"><a class="nav-link" href="#segmentation">Segmentation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#elasticity">Elasticity</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mlflow">MLflow</a></li>
+          <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+          <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-sm btn-glass-secondary rounded-circle px-2 py-1" id="themeToggleBtn" title="Toggle Theme">
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+          <a href="https://github.com/srishanth0803/NeuralRetail" target="_blank" class="btn btn-sm btn-gradient-primary">
+            <i class="fab fa-github"></i> GitHub Repo
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOME / HERO SECTION -->
+  <section id="home" class="hero-section text-center">
+    <div class="container">
+      <div data-aos="fade-up">
+        <div class="hero-badge">
+          <i class="fas fa-sparkles"></i> End-to-End Enterprise AI & MLOps Platform
+        </div>
+        <h1 class="hero-title">
+          Neural<span class="gradient-text">Retail</span> Platform
+        </h1>
+        <p class="hero-subtitle">
+          An end-to-end AI-powered Retail Analytics platform built using Machine Learning, Deep Learning, and MLOps to maximize demand forecasting precision, retain high-value customers, and optimize pricing dynamically.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+          <a href="#forecasting" class="btn btn-gradient-primary btn-lg">
+            <i class="fas fa-chart-line"></i> View Live Dashboard
+          </a>
+          <a href="https://github.com/srishanth0803/NeuralRetail" target="_blank" class="btn btn-glass-secondary btn-lg">
+            <i class="fab fa-github"></i> GitHub Repository
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT STATISTICS COUNTERS -->
+      <div class="row g-4 mt-4" id="stats-section" data-aos="fade-up" data-aos-delay="150">
+        <div class="col-6 col-md-3">
+          <div class="glass-card stat-card">
+            <div class="stat-number counter" data-target="1.2" data-suffix="M+" data-decimals="1">0</div>
+            <div class="stat-label">Dataset Records</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="glass-card stat-card">
+            <div class="stat-number counter" data-target="12" data-suffix="+" data-decimals="0">0</div>
+            <div class="stat-label">Models Built</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="glass-card stat-card">
+            <div class="stat-number counter" data-target="96.4" data-suffix="%" data-decimals="1">0</div>
+            <div class="stat-label">Forecast Accuracy</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="glass-card stat-card">
+            <div class="stat-number counter" data-target="0.94" data-suffix="" data-decimals="2">0</div>
+            <div class="stat-label">Churn Model AUC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT PROJECT & CORE MODULES -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Comprehensive Overview</span>
+        <h2 class="section-title">About <span class="gradient-text">NeuralRetail</span></h2>
+        <p class="section-desc">
+          NeuralRetail is a modular, scalable AI analytics engine designed to transform raw multi-channel retail data into actionable revenue growth and inventory optimization insights.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Module Cards -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="glass-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="brand-icon"><i class="fas fa-database"></i></div>
+              <h4 class="mb-0 fs-5">1. Data Ingestion</h4>
+            </div>
+            <p class="text-secondary small mb-0">
+              Automated ingestion pipelines connecting raw POS, web, and ERP transactional feeds directly into Delta Lake storage.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="brand-icon"><i class="fas fa-sliders-h"></i></div>
+              <h4 class="mb-0 fs-5">2. Feature Engineering</h4>
+            </div>
+            <p class="text-secondary small mb-0">
+              Extracted lag variables, rolling seasonal windows, price-point ratios, holiday indicators, and customer behavioral metrics.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="brand-icon"><i class="fas fa-chart-pie"></i></div>
+              <h4 class="mb-0 fs-5">3. Exploratory Data Analysis</h4>
+            </div>
+            <p class="text-secondary small mb-0">
+              Detailed statistical distribution checks, outlier pruning, correlation heatmaps, missing value imputation, and target balance analysis.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="glass-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="brand-icon"><i class="fas fa-chart-line"></i></div>
+              <h4 class="mb-0 fs-5">4. Demand Forecasting</h4>
+            </div>
+            <p class="text-secondary small mb-0">
+              Multi-model time-series forecasting utilizing Prophet, NeuralProphet, Bidirectional LSTM, and XGBoost Ensembles.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="brand-icon"><i class="fas fa-user-slash"></i></div>
+              <h4 class="mb-0 fs-5">5. Churn Prediction</h4>
+            </div>
+            <p class="text-secondary small mb-0">
+              Machine learning classifiers (XGBoost, LightGBM) predicting customer attrition probabilities with SHAP model explainability.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="brand-icon"><i class="fas fa-users-viewfinder"></i></div>
+              <h4 class="mb-0 fs-5">6. Customer Segmentation</h4>
+            </div>
+            <p class="text-secondary small mb-0">
+              RFM (Recency, Frequency, Monetary) feature extraction paired with K-Means clustering to create tailored persona groups.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="glass-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="brand-icon"><i class="fas fa-tags"></i></div>
+              <h4 class="mb-0 fs-5">7. Price Elasticity</h4>
+            </div>
+            <p class="text-secondary small mb-0">
+              Ordinary Least Squares (OLS) demand curve estimation to calculate price elasticity scores and optimize promotional margins.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="brand-icon"><i class="fas fa-cogs"></i></div>
+              <h4 class="mb-0 fs-5">8. MLOps Pipeline</h4>
+            </div>
+            <p class="text-secondary small mb-0">
+              Continuous model tracking, metric logging, artifact versioning, and automated candidate model promotion via MLflow Registry.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="brand-icon"><i class="fas fa-rocket"></i></div>
+              <h4 class="mb-0 fs-5">9. FastAPI & Deployment</h4>
+            </div>
+            <p class="text-secondary small mb-0">
+              High-throughput microservices built with FastAPI and containerized using Docker for low-latency inferencing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK SECTION -->
+  <section id="techstack" class="py-5 bg-canvas">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Tools & Libraries</span>
+        <h2 class="section-title">Technology <span class="gradient-text">Stack</span></h2>
+        <p class="section-desc">
+          Powered by state-of-the-art data engineering, machine learning frameworks, MLOps tooling, and web visualization platforms.
+        </p>
+      </div>
+
+      <div class="row g-3">
+        <!-- Tech Items -->
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fab fa-python"></i></div>
+            <div>
+              <div class="tech-name">Python</div>
+              <div class="tech-cat">Core Language</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="50">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-table"></i></div>
+            <div>
+              <div class="tech-name">Pandas</div>
+              <div class="tech-cat">Data Wrangling</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="100">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-calculator"></i></div>
+            <div>
+              <div class="tech-name">NumPy</div>
+              <div class="tech-cat">Numeric Ops</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="150">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-brain"></i></div>
+            <div>
+              <div class="tech-name">Scikit-Learn</div>
+              <div class="tech-cat">Machine Learning</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="200">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-fire"></i></div>
+            <div>
+              <div class="tech-name">PyTorch</div>
+              <div class="tech-cat">Deep Learning</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="250">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-chart-line"></i></div>
+            <div>
+              <div class="tech-name">Prophet</div>
+              <div class="tech-cat">Time Series</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-network-wired"></i></div>
+            <div>
+              <div class="tech-name">NeuralProphet</div>
+              <div class="tech-cat">Neural TS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="50">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-wave-square"></i></div>
+            <div>
+              <div class="tech-name">LSTM</div>
+              <div class="tech-cat">RNN Architecture</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="100">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-bolt"></i></div>
+            <div>
+              <div class="tech-name">XGBoost</div>
+              <div class="tech-cat">Gradient Boost</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="150">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-feather"></i></div>
+            <div>
+              <div class="tech-name">LightGBM</div>
+              <div class="tech-cat">Gradient Boost</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="200">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-cubes"></i></div>
+            <div>
+              <div class="tech-name">PySpark</div>
+              <div class="tech-cat">Big Data</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="250">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-layer-group"></i></div>
+            <div>
+              <div class="tech-name">Delta Lake</div>
+              <div class="tech-cat">Data Lakehouse</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-vial"></i></div>
+            <div>
+              <div class="tech-name">MLflow</div>
+              <div class="tech-cat">MLOps Tracking</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="50">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-tachometer-alt"></i></div>
+            <div>
+              <div class="tech-name">FastAPI</div>
+              <div class="tech-cat">REST Microservices</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="100">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-desktop"></i></div>
+            <div>
+              <div class="tech-name">Streamlit</div>
+              <div class="tech-cat">Interactive Web App</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="150">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fab fa-docker"></i></div>
+            <div>
+              <div class="tech-name">Docker</div>
+              <div class="tech-cat">Containerization</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="200">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fab fa-git-alt"></i></div>
+            <div>
+              <div class="tech-name">Git</div>
+              <div class="tech-cat">Version Control</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="250">
+          <div class="glass-card tech-card">
+            <div class="tech-icon-wrapper"><i class="fas fa-database"></i></div>
+            <div>
+              <div class="tech-name">SQL</div>
+              <div class="tech-cat">Database Queries</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEM ARCHITECTURE SECTION -->
+  <section id="architecture" class="py-5">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Pipeline Design</span>
+        <h2 class="section-title">System <span class="gradient-text">Architecture</span></h2>
+        <p class="section-desc">
+          Medallion Data Architecture (Bronze ➔ Silver ➔ Gold) integrated with MLflow, FastAPI microservices, and Streamlit dashboards.
+        </p>
+      </div>
+
+      <!-- Interactive Node Pipeline -->
+      <div class="glass-card p-4 mb-5" data-aos="fade-up">
+        <div class="pipeline-flow">
+          <div class="pipeline-node"><i class="fas fa-file-csv"></i>Raw Dataset</div>
+          <i class="fas fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-node"><i class="fas fa-cloud-download-alt"></i>Ingestion</div>
+          <i class="fas fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-node medallion-badge-bronze"><i class="fas fa-cube"></i>Bronze Layer</div>
+          <i class="fas fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-node medallion-badge-silver"><i class="fas fa-broom"></i>Silver Layer</div>
+          <i class="fas fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-node medallion-badge-gold"><i class="fas fa-trophy"></i>Gold Layer</div>
+          <i class="fas fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-node"><i class="fas fa-cogs"></i>Features</div>
+          <i class="fas fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-node"><i class="fas fa-brain"></i>ML Models</div>
+          <i class="fas fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-node"><i class="fas fa-vial"></i>MLflow</div>
+          <i class="fas fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-node"><i class="fas fa-bolt"></i>FastAPI</div>
+          <i class="fas fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-node"><i class="fas fa-chart-bar"></i>Streamlit</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDA PAGE SECTION -->
+  <section id="eda" class="py-5 bg-canvas">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Exploratory Data Analysis</span>
+        <h2 class="section-title">Dataset Insights & <span class="gradient-text">Data Quality</span></h2>
+        <p class="section-desc">
+          Thorough statistical profiling, correlation heatmaps, target distributions, and missing data audits.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Image Card 1 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="glass-card p-3">
+            <div class="screenshot-container mb-3" data-title="Dataset Missing Value Profile">
+              <div class="screenshot-placeholder-content">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h6 class="text-white">Missing Values Chart</h6>
+                <span class="badge bg-dark border text-muted">Click to Upload / View</span>
+              </div>
+            </div>
+            <h5>Data Quality & Missing Values</h5>
+            <p class="text-secondary small">Evaluated null percentages across transactions; imputed numerical values using median strategy.</p>
+          </div>
+        </div>
+
+        <!-- Image Card 2 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-3">
+            <div class="screenshot-container mb-3" data-title="Feature Correlation Heatmap">
+              <div class="screenshot-placeholder-content">
+                <i class="fas fa-th"></i>
+                <h6 class="text-white">Correlation Heatmap</h6>
+                <span class="badge bg-dark border text-muted">Click to Upload / View</span>
+              </div>
+            </div>
+            <h5>Feature Correlation Heatmap</h5>
+            <p class="text-secondary small">Multicollinearity analysis highlighting strong positive correlation between promotion flags and demand spikes.</p>
+          </div>
+        </div>
+
+        <!-- Image Card 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card p-3">
+            <div class="screenshot-container mb-3" data-title="Target Sales Distribution">
+              <div class="screenshot-placeholder-content">
+                <i class="fas fa-chart-area"></i>
+                <h6 class="text-white">Target Distribution</h6>
+                <span class="badge bg-dark border text-muted">Click to Upload / View</span>
+              </div>
+            </div>
+            <h5>Target Demand Distribution</h5>
+            <p class="text-secondary small">Right-skewed sales volume distribution corrected via Log1p transformation prior to model training.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMAND FORECASTING SECTION -->
+  <section id="forecasting" class="py-5">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Time Series Intelligence</span>
+        <h2 class="section-title">Demand Forecasting <span class="gradient-text">Models</span></h2>
+        <p class="section-desc">
+          Comparing Prophet, Bidirectional LSTM, NeuralProphet, and XGBoost Ensemble performance.
+        </p>
+      </div>
+
+      <!-- Interactive Chart Card -->
+      <div class="glass-card p-4 mb-4" data-aos="fade-up">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h4 class="mb-1">Interactive Forecast Comparison</h4>
+            <span class="text-secondary small">Toggle specific models to inspect prediction alignment vs actual sales</span>
+          </div>
+
+          <div class="btn-group gap-2 flex-wrap">
+            <button class="btn btn-sm btn-gradient-primary forecast-model-btn" data-model="all">All Models</button>
+            <button class="btn btn-sm btn-glass-secondary forecast-model-btn" data-model="ensemble">Ensemble</button>
+            <button class="btn btn-sm btn-glass-secondary forecast-model-btn" data-model="lstm">LSTM</button>
+            <button class="btn btn-sm btn-glass-secondary forecast-model-btn" data-model="prophet">Prophet</button>
+            <button class="btn btn-sm btn-glass-secondary forecast-model-btn" data-model="neuralprophet">NeuralProphet</button>
+          </div>
+        </div>
+
+        <div style="height: 380px; position: relative;">
+          <canvas id="forecastChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Metrics Breakdown Grid -->
+      <div class="row g-4" data-aos="fade-up">
+        <div class="col-6 col-md-3">
+          <div class="glass-card p-3 text-center">
+            <span class="text-secondary small">MAPE (Error)</span>
+            <h3 class="gradient-text mb-0 mt-1">3.4%</h3>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="glass-card p-3 text-center">
+            <span class="text-secondary small">RMSE</span>
+            <h3 class="gradient-text-purple mb-0 mt-1">14.2</h3>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="glass-card p-3 text-center">
+            <span class="text-secondary small">Forecast Accuracy</span>
+            <h3 class="gradient-text-emerald mb-0 mt-1">96.6%</h3>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="glass-card p-3 text-center">
+            <span class="text-secondary small">Confidence Interval</span>
+            <h3 class="text-white mb-0 mt-1">95% CI</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHURN PREDICTION SECTION -->
+  <section id="churn" class="py-5 bg-canvas">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Customer Retention</span>
+        <h2 class="section-title">Customer Churn <span class="gradient-text">Prediction</span></h2>
+        <p class="section-desc">
+          Identify at-risk customers early using Gradient Boosted Trees and SHAP feature explainability.
+        </p>
+      </div>
+
+      <div class="row g-4 mb-4">
+        <!-- ROC Curve Chart -->
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="glass-card p-4 h-100">
+            <h5 class="mb-3"><i class="fas fa-chart-line text-cyan me-2"></i>ROC Curve (AUC = 0.94)</h5>
+            <div style="height: 300px;">
+              <canvas id="rocChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- SHAP Feature Importance -->
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="glass-card p-4 h-100">
+            <h5 class="mb-3"><i class="fas fa-list-ol text-purple me-2"></i>SHAP Feature Importance</h5>
+            <div style="height: 300px;">
+              <canvas id="shapChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER SEGMENTATION SECTION -->
+  <section id="segmentation" class="py-5">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Cluster Analysis</span>
+        <h2 class="section-title">RFM & K-Means <span class="gradient-text">Segmentation</span></h2>
+        <p class="section-desc">
+          Group shoppers into distinct behavioural personas to launch targeted marketing campaigns.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6" data-aos="fade-up">
+          <div class="glass-card p-4 h-100">
+            <h5>Customer Persona Distribution</h5>
+            <div style="height: 280px;" class="mt-3">
+              <canvas id="segmentPieChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-4 h-100">
+            <h5>RFM Recency vs Monetary Scatter</h5>
+            <div style="height: 280px;" class="mt-3">
+              <canvas id="rfmScatterChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE ELASTICITY PAGE -->
+  <section id="elasticity" class="py-5 bg-canvas">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Dynamic Pricing</span>
+        <h2 class="section-title">Price Elasticity & <span class="gradient-text">Revenue Simulator</span></h2>
+        <p class="section-desc">
+          Quantify demand sensitivity to price changes and run real-time revenue scenario simulations.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Interactive Simulator Controls -->
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="glass-card calculator-box h-100">
+            <h4><i class="fas fa-sliders-h text-cyan me-2"></i>Live Price Simulator</h4>
+            <p class="text-secondary small mb-4">Adjust product price to simulate predicted demand, total revenue, and profit margin in real-time.</p>
+
+            <div class="mb-4">
+              <div class="d-flex justify-content-between fw-bold mb-2">
+                <span>Unit Price ($)</span>
+                <span id="calcPriceVal" class="gradient-text fs-5">$25.00</span>
+              </div>
+              <input type="range" class="slider-custom" id="priceSlider" min="10" max="50" step="1" value="25">
+            </div>
+
+            <div class="glass-card p-3 mb-3">
+              <div class="row text-center">
+                <div class="col-4">
+                  <span class="text-secondary small">Demand</span>
+                  <div id="calcDemandVal" class="fw-bold text-white fs-6">650 units</div>
+                </div>
+                <div class="col-4">
+                  <span class="text-secondary small">Revenue</span>
+                  <div id="calcRevenueVal" class="fw-bold text-success fs-6">$16,250</div>
+                </div>
+                <div class="col-4">
+                  <span class="text-secondary small">Margin</span>
+                  <div id="calcMarginVal" class="fw-bold text-info fs-6">52.0%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-dark border-secondary small mb-0">
+              <i class="fas fa-info-circle me-1 text-cyan"></i> Elasticity Score: <strong>-1.85 (Elastic Demand)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demand vs Price Chart -->
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="glass-card p-4 h-100">
+            <h5>Demand & Revenue Curve (OLS Regression)</h5>
+            <div style="height: 320px;" class="mt-3">
+              <canvas id="priceElasticityChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MLFLOW PAGE SECTION -->
+  <section id="mlflow" class="py-5">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Experiment Tracking</span>
+        <h2 class="section-title">MLflow & <span class="gradient-text">MLOps Registry</span></h2>
+        <p class="section-desc">
+          Automated experiment logging, hyperparameter tracking, metric comparison, and model staging.
+        </p>
+      </div>
+
+      <div class="mlflow-panel" data-aos="fade-up">
+        <div class="mlflow-header">
+          <div class="d-flex align-items-center gap-2">
+            <i class="fas fa-vial text-cyan fs-5"></i>
+            <span class="fw-bold text-white">MLflow Tracking Console</span>
+            <span class="badge bg-success ms-2">Active Run #892</span>
+          </div>
+
+          <div class="d-flex gap-2">
+            <span class="mlflow-tab active">Metrics</span>
+            <span class="mlflow-tab">Parameters</span>
+            <span class="mlflow-tab">Artifacts</span>
+          </div>
+        </div>
+
+        <div class="mlflow-body">
+          <div class="table-responsive">
+            <table class="table table-dark table-hover mb-0 align-middle">
+              <thead>
+                <tr>
+                  <th>Model Run</th>
+                  <th>Framework</th>
+                  <th>MAPE</th>
+                  <th>RMSE</th>
+                  <th>AUC</th>
+                  <th>Stage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><i class="fas fa-check-circle text-success me-2"></i><strong>Ensemble_v4.2</strong> (Champion)</td>
+                  <td>PyTorch + XGBoost</td>
+                  <td><span class="metric-tag">3.4%</span></td>
+                  <td><span class="metric-tag">14.2</span></td>
+                  <td><span class="metric-tag">0.94</span></td>
+                  <td><span class="badge bg-success">Production</span></td>
+                </tr>
+                <tr>
+                  <td><i class="fas fa-circle text-warning me-2"></i>LSTM_BiDirectional_v3</td>
+                  <td>PyTorch</td>
+                  <td><span class="metric-tag">4.1%</span></td>
+                  <td><span class="metric-tag">16.8</span></td>
+                  <td>-</td>
+                  <td><span class="badge bg-warning text-dark">Staging</span></td>
+                </tr>
+                <tr>
+                  <td><i class="fas fa-history text-muted me-2"></i>Prophet_Base_v1</td>
+                  <td>Prophet</td>
+                  <td><span class="metric-tag">5.8%</span></td>
+                  <td><span class="metric-tag">21.0</span></td>
+                  <td>-</td>
+                  <td><span class="badge bg-secondary">Archived</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section id="results" class="py-5 bg-canvas">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Key Performance Indicators</span>
+        <h2 class="section-title">Project <span class="gradient-text">Results</span></h2>
+        <p class="section-desc">
+          Quantifiable benchmark outcomes achieved across forecasting and customer analytics modules.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-6 col-md-3" data-aos="fade-up">
+          <div class="glass-card p-4 text-center">
+            <i class="fas fa-bullseye fs-2 text-cyan mb-2"></i>
+            <h2 class="gradient-text mb-0">96.4%</h2>
+            <span class="text-secondary small">Forecast Accuracy</span>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-4 text-center">
+            <i class="fas fa-chart-pie fs-2 text-purple mb-2"></i>
+            <h2 class="gradient-text-purple mb-0">0.94</h2>
+            <span class="text-secondary small">Churn AUC Score</span>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card p-4 text-center">
+            <i class="fas fa-users fs-2 text-emerald mb-2"></i>
+            <h2 class="gradient-text-emerald mb-0">4 Segments</h2>
+            <span class="text-secondary small">K-Means Clusters</span>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="glass-card p-4 text-center">
+            <i class="fas fa-dollar-sign fs-2 text-warning mb-2"></i>
+            <h2 class="text-warning mb-0">+18.5%</h2>
+            <span class="text-secondary small">Revenue Lift</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE SECTION -->
+  <section id="timeline" class="py-5">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Milestones</span>
+        <h2 class="section-title">28-Day Internship <span class="gradient-text">Timeline</span></h2>
+        <p class="section-desc">
+          Structured four-week project execution timeline from raw data ingestion to final dashboard delivery.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item timeline-left" data-aos="fade-right">
+          <div class="timeline-icon"><i class="fas fa-database"></i></div>
+          <div class="glass-card p-4">
+            <span class="badge bg-primary mb-2">Week 1</span>
+            <h4>Data Engineering & EDA</h4>
+            <p class="text-secondary small mb-0">Established Delta Lake medallion architecture, conducted EDA, missing value imputation, and baseline time series forecasting.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-right" data-aos="fade-left">
+          <div class="timeline-icon"><i class="fas fa-brain"></i></div>
+          <div class="glass-card p-4">
+            <span class="badge bg-info mb-2">Week 2</span>
+            <h4>Deep Learning & Customer Analytics</h4>
+            <p class="text-secondary small mb-0">Trained LSTM & NeuralProphet models; implemented XGBoost Churn Classifier and RFM K-Means Customer Clustering.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-left" data-aos="fade-right">
+          <div class="timeline-icon"><i class="fas fa-tags"></i></div>
+          <div class="glass-card p-4">
+            <span class="badge bg-warning text-dark mb-2">Week 3</span>
+            <h4>Price Elasticity & MLOps</h4>
+            <p class="text-secondary small mb-0">Engineered OLS Price Elasticity curves, integrated MLflow tracking registry, and built FastAPI inference microservices.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-right" data-aos="fade-left">
+          <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+          <div class="glass-card p-4">
+            <span class="badge bg-success mb-2">Week 4</span>
+            <h4>Streamlit Dashboard & Delivery</h4>
+            <p class="text-secondary small mb-0">Built interactive Streamlit web dashboard, containerized application with Docker, and finalized production documentation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL HIDDEN FILE UPLOADER FOR CUSTOM GRAPH REPLACEMENT -->
+  <input type="file" id="globalImageUploader" accept="image/*" style="display: none;">
+
+  <!-- MODAL FOR IMAGE ZOOM PREVIEW -->
+  <div class="modal fade" id="imagePreviewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content modal-content-glass p-3">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title" id="modalImageTitle">Project Graph</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center p-3">
+          <img src="" id="modalImagePreview" class="img-fluid rounded border" alt="Full Preview">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button id="backToTopBtn" class="back-to-top" title="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer-section">
+    <div class="container text-center">
+      <div class="mb-3">
+        <h3 class="mb-1 text-white">Gottam Srishanth</h3>
+        <p class="text-cyan fw-bold">Data Analyst | Machine Learning Enthusiast</p>
+      </div>
+
+      <div class="d-flex justify-content-center gap-3 mb-4">
+        <a href="https://github.com/srishanth0803/NeuralRetail" target="_blank" class="social-link" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="social-link" title="LinkedIn (Add Link)">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="social-link" title="Email (Add Link)">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+
+      <div class="text-secondary small border-top border-secondary pt-3">
+        © 2026 NeuralRetail Project Showcase. Designed for Production & Interview Presentation.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- AOS JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Custom App Script -->
+  <script src="js/script.js"></script>
+</body>
+</html>
